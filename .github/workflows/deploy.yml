@@ -33,6 +33,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/test-deployment:latest
-            sudo docker stop test-deployment || true
-            sudo docker rm test-deployment || true
+            sudo docker stop web-app || true
+            sudo docker rm web-app || true
             sudo docker run -d --name test-deployment -p 3000:3000 ${{ secrets.DOCKERHUB_USERNAME }}/test-deployment
